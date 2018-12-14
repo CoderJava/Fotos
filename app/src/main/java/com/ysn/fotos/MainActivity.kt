@@ -175,8 +175,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     val exifInterface = ExifInterface(picturePath)
                     val jsonObjectData = JSONObject()
                     jsonObjectData.put("upload", true)
-                    exifInterface.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, jsonObjectData.toString())
-                    exifInterface.saveAttributes()
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        exifInterface.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, jsonObjectData.toString())
+                        exifInterface.saveAttributes()
+                    }
                     val bitmap = BitmapFactory.decodeFile(picturePath)
                     image_view.setImageBitmap(bitmap)
                 }
