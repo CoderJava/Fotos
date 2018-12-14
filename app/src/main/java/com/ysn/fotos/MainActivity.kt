@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         val request = Request.Builder()
                             .url("https://api.imgur.com/3/image")
-                            .addHeader("Authorization", "Client-ID 2b9608076de1a3f")
+                            .addHeader("Authorization", "Client-ID xxxxxx") /* Ex: Client-ID xxxxxx */
                             .post(requestBodyBuilder.build())
                             .build()
                         okHttpClient.newCall(request)
